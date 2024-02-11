@@ -7,6 +7,15 @@ import shutil
 import ctypes
 import configparser
 
+# Platform checking
+
+if sys.platform == 'win32':
+    print('You are using Windows platform.\n')
+else:
+    print(f"Using {sys.platform}. This script is not (yet) supported.")
+    exit()
+
+
 try:
     import win32api
 except ModuleNotFoundError:
@@ -106,14 +115,6 @@ else:
     os.remove(cfg_path + 'config.ini')
     print("Error, config.ini is damaged. ")
     os.startfile('main.py')
-    exit()
-
-# Platform checking
-
-if sys.platform == 'win32':
-    print('You are using Windows platform.\n')
-else:
-    print(f"Using {sys.platform}. This script is not (yet) supported.")
     exit()
 
 # Choice
